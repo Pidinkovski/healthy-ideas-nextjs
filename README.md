@@ -43,13 +43,6 @@ npm run dev
 
 5. Open [http://localhost:3000](http://localhost:3000)
 
-## Deployment (Vercel)
-
-1. Push to GitHub
-2. Connect to Vercel
-3. Add environment variables in Vercel dashboard
-4. Deploy!
-
 ## API Endpoints
 
 ### Auth
