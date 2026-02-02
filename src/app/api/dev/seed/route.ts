@@ -124,6 +124,20 @@ export async function POST(_request: NextRequest) {
     );
   } catch (error: any) {
     console.error('Seed error:', error);
-    return NextResponse.json({ error: 'Failed to seed database' }, { status: 500 });
+    return NextResponse.json(
+      {
+        error: 'Failed to seed database',
+        details: error?.message || String(error),
+        // Common Mongo/Mongoose failures often live here:
+        name: error?.name,
+        code: error?.code,
+      },
+      { status: 500 }
+    );
   }
+}
+
+// Convenience: allow GET to run the seed too (useful from browser)
+export async function GET(request: NextRequest) {
+  return POST(request);
 }
